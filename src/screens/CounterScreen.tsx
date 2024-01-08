@@ -1,13 +1,17 @@
 import React, {useState} from 'react';
-import {View, Text, StyleSheet, Button} from 'react-native';
+import {View, Text, StyleSheet} from 'react-native';
+import {Button} from '../components/Button';
 
 export const CounterScreen = () => {
-  const [contador, setContador] = useState(0);
+  const [counter, setCounter] = useState(0);
 
   return (
     <View style={styles.container}>
-      <Text style={styles.titleCounter}>Contador: { contador }</Text>
-      <Button onPress={() => setContador(contador + 1)} title="+1" />
+      <Text style={styles.titleCounter}>Contador: {counter}</Text>
+      <Button
+        counter={counter}
+        setCounter={setCounter}
+      />
     </View>
   );
 };
