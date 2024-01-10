@@ -5,12 +5,22 @@ import {Button} from '../components/Button';
 export const CounterScreen = () => {
   const [counter, setCounter] = useState(0);
 
+  if (counter < 0) {
+    setCounter(0);
+  }
+
   return (
     <View style={styles.container}>
       <Text style={styles.titleCounter}>Contador: {counter}</Text>
       <Button
-        counter={counter}
-        setCounter={setCounter}
+        title="+1"
+        onPress={() => setCounter(counter + 1)}
+        position="br"
+      />
+      <Button
+        title="-1"
+        onPress={() => setCounter(counter - 1)}
+        position="bl"
       />
     </View>
   );

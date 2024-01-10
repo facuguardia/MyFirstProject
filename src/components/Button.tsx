@@ -2,36 +2,22 @@ import React from 'react';
 import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 
 interface Props {
-  counter: number;
-  setCounter: React.Dispatch<React.SetStateAction<number>>;
+  title: string;
+  position?: 'br' | 'bl';
+  onPress: () => void;
 }
 
-export const Button = ({ counter, setCounter}: Props) => {
-  const counterIncrement = (): void => {
-    setCounter(counter + 1);
-  };
-
-  const counterDecrement = (): void => {
-    setCounter(counter - 1);
-  };
-
-  if (counter < 0) {
-    setCounter(0);
-  }
-
+export const Button = ({title, onPress, position = 'br'}: Props) => {
   return (
-    <React.Fragment>
-      <TouchableOpacity onPress={counterDecrement} style={styles.btnLocationL}>
+    <>
+      <TouchableOpacity
+        onPress={onPress}
+        style={position === 'br' ? styles.btnLocationR : styles.btnLocationL}>
         <View style={styles.btn}>
-          <Text style={styles.textBtn}>-1</Text>
+          <Text style={styles.textBtn}>{title}</Text>
         </View>
       </TouchableOpacity>
-      <TouchableOpacity onPress={counterIncrement} style={styles.btnLocationR}>
-        <View style={styles.btn}>
-          <Text style={styles.textBtn}>+1</Text>
-        </View>
-      </TouchableOpacity>
-    </React.Fragment>
+    </>
   );
 };
 
