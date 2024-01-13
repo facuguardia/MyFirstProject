@@ -11,12 +11,14 @@ export const BoxObjectModelScreen = () => {
 
 const styles = StyleSheet.create({
   container: {
-
+    marginHorizontal: 20,
+    marginVertical: 20,
   },
   title: {
     fontSize: 20,
     borderWidth: 10,
-    // backgroundColor: 'red',
     padding: 10,
+    textAlign: 'center',
+    textAlignVertical: 'center',
   },
 });
